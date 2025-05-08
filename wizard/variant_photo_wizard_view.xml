@@ -1,0 +1,33 @@
+<odoo>
+<record id="view_variant_photo_wizard_form" model="ir.ui.view">
+    <field name="name">variant.photo.wizard.form</field>
+    <field name="model">variant.photo.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Upload Variant Photo" enctype="multipart/form-data">
+            <group>
+                <field name="upload_file" filename="file_name"/>
+                <field name="variant_id"/>
+                <field name="attribute_value_id"/>
+            </group>
+            <footer>
+                <button name="action_upload_default" type="object" string="Upload new default photo" class="btn-primary"/>
+                <button name="action_upload_media" type="object" string="Upload new media" class="btn-primary"/>
+                <button name="action_delete_all_media" type="object" string="Delete all medias" class="btn-primary"/>
+                <button string="Cancel" class="btn-secondary" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+<record id="action_variant_photo_wizard" model="ir.actions.act_window">
+    <field name="name">Upload Variant Photo</field>
+    <field name="res_model">variant.photo.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+</record>
+<menuitem id="menu_variant_photo_wizard_root"
+          name="Upload Variant Photo"
+          parent="website_sale.menu_ecommerce_settings"
+          action="action_variant_photo_wizard"
+          sequence="50"/>
+
+</odoo>
